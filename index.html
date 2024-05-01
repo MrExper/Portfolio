@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    .container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 100%;
+      animation: fadeout 2s 4s forwards, split 2s 4s forwards, hide 0s 6s forwards;
+      transform-origin: center;
+      overflow: visible;
+    }
+
+    @keyframes hide {
+      to {
+        z-index: -1;
+      }
+    }
+
+    .tailwind-container {
+      opacity: 0;
+      animation: appear 2s 6s forwards;
+    }
+
+    h1 {
+      color: white;
+      font-size: 50px;
+      text-align: center;
+      opacity: 0;
+      animation: appear 1s 1s forwards, disappear 1s 2s forwards;
+    }
+
+    @keyframes appear {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes disappear {
+      to {
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeout {
+      to {
+        opacity: 0;
+      }
+    }
+
+    @keyframes split {
+      to {
+        transform: scaleX(-1) scaleY(-1);
+      }
+    }
+
+    nav ul li {
+      display: inline;
+      margin: 0 10px;
+    }
+
+    .navimage a img {
+      height: 100px;
+      width: 100px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: rgb(0, 0, 0);
+      font-size: 20px;
+      padding-right: 10px;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+    }
+
+    .heroarea {
+      display: flex;
+      align-items: center;
+      padding-top: 50px;
+      padding-left: 130px;
+      opacity: 0;
+      animation: appear 1s 6s forwards;
+    }
+
+    .heroimage {
+      margin-right: 60px;
+    }
+
+    .heroimage img {
+      height: 600px;
+      animation: moveUpDown 2s infinite alternate;
+    }
+
+    .herotext {
+      padding: 100px;
+      padding-right: 100px;
+      text-align: center;
+    }
+
+    .heroarea .herotext p {
+      color: rgb(0, 0, 0);
+      font-size: 50px;
+      font-weight: bolder;
+      padding-top: 0;
+    }
+
+    @keyframes moveUpDown {
+      0% {
+        transform: translateY(0);
+      }
+
+      100% {
+        transform: translateY(50px);
+      }
+    }
+
+    .container1 {
+      max-width: 32rem;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    .title {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+
+    .subtitle {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+
+    .description {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #000000;
+      margin-top: 1rem;
+    }
+
+    .role {
+      font-size: 1.5rem;
+      color: #4C566A;
+      margin-top: 1rem;
+    }
+
+    .btn {
+      margin-top: 2rem;
+      background-color: transparent;
+      color: #4C566A;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      border: 2px solid #4C566A;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #E5E9F0;
+      color: #2E3440;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .social-link {
+      color: #4C566A;
+      font-weight: bold;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .social-link:hover {
+      color: #2E3440;
+    }
+
+    .container2 {
+      max-width: 80rem;
+      margin: 0 auto;
+      padding: 4rem;
+    }
+
+    .title1 {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+
+    .description1 {
+      margin-top: 2rem;
+      font-size: 1.5rem;
+    }
+
+    .project1 {
+      border-top: 1px solid #CBD5E0;
+      padding-top: 2rem;
+      margin-top: 2rem;
+    }
+
+    .project-number1 {
+      font-size: 1rem;
+      font-weight: bold;
+      color: #4A5568;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .project-title1 {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-top: 0.5rem;
+    }
+
+    .project-description1 {
+      font-size: 1rem;
+      color: #4A5568;
+      margin-top: 0.5rem;
+    }
+
+
+
+    .view-project1:hover {
+      background-color: #2C5282;
+      color: #FFF;
+    }
+
+    .view-project1 {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem;
+      margin-top: 1rem;
+      background-color: #FFF;
+      color: #4A5568;
+      font-weight: bold;
+      border: 2px solid #4A5568;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+      position: absolute;
+      right: 20rem;
+      bottom: 2rem;
+    }
+
+    .project1 {
+      position: relative;
+    }
+
+    .project-image1 {
+      position: absolute;
+      top: -50px;
+      left: 120%;
+      opacity: 0;
+      transition: opacity 0.3s, left 0.3s;
+      height: 150px;
+      width: 300px;
+    }
+
+    .view-project1:hover .project-image1 {
+      opacity: 1;
+      left: 100%;
+    }
+
+
+    .flex-display {
+      display: flex;
+    }
+
+    .view-project1 a {
+      text-decoration: none;
+    }
+
+    .education-container {
+      margin-top: 20px;
+      margin-left: 100px;
+    }
+
+    .education-item {
+      margin-bottom: 40px;
+    }
+
+    .flex {
+      display: flex;
+      align-items: center;
+    }
+
+    .circle {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: 2px solid #3182ce;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+    }
+
+    .education-heading {
+      font-size: 1.125rem;
+      font-weight: bold;
+    }
+
+    .details {
+      margin-left: 40px;
+    }
+
+    .date {
+      background-color: #cbd5e0;
+      color: #4a5568;
+      font-size: 0.875rem;
+      font-weight: bold;
+      padding: 3px 6px;
+      display: inline-block;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #4a5568;
+      font-size: 0.875rem;
+      margin-bottom: 10px;
+    }
+
+    .skills-container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 48px 16px;
+    }
+
+    .section-title {
+      font-size: 1.875rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 32px;
+    }
+
+    .skill {
+      text-align: center;
+    }
+
+    .skill-image {
+      width: 100px;
+      height: 100px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .skill-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-top: 16px;
+    }
+
+    .skill-description {
+      font-size: 1rem;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    .footer {
+      background-color: #000000;
+      color: #cbd5e0;
+      padding: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-text {
+      font-size: 0.875rem;
+    }
+
+    .footer-container{
+      padding: 0px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Mr Exper</h1>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#works">Work</a></li>
+      <li><a href="#educationss">Education</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="resume.pdf" target="_blank">Resume</a></li>
+    </ul>
+  </nav>
+  <!-- Nav Bar End -->
+  <!-- Hero Area Start -->
+  <div class="heroarea">
+    <div class="container1">
+      <h2 class="subtitle"><span class="title">Hi,</span><br>I'm Mr Exper</h2>
+      <p class="description">A Tech-Enthusiast</p>
+      <p class="role">Front End Developer</p>
+      <button class="btn">SEE MY WORKS →</button>
+    </div>
+    <div class="heroimage">
+      <img src="pic.png" alt="image">
+    </div>
+  </div>
+  <!-- Hero Area End -->
+  <!-- Works Area Start -->
+  <div id="works"></div>
+  <div class="container2">
+    <p class="description1"><span class="title1">My Recent Works</span><br></p>
+
+    <div class="project1">
+      <div class="flex-display">
+        <div>
+          <p class="project-number1">01</p>
+          <h2 class="project-title1">Project Name</h2>
+          <p class="project-description1">Project Detail</p>
+        </div>
+        <div class="view-project1">
+          <a href=""><span>VIEW PROJECT →</span></a>
+          <img src="empty.png" alt="Project Image" class="project-image1">
+        </div>
+      </div>
+    </div>
+    <div class="project1">
+      <div class="flex-display">
+        <div>
+          <p class="project-number1">02</p>
+          <h2 class="project-title1">Project Name</h2>
+          <p class="project-description1">Project Detail</p>
+        </div>
+        <div class="view-project1">
+          <a href=""><span>VIEW PROJECT →</span></a>
+          <img src="empty.png" alt="Project Image" class="project-image1">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Works Area End -->
+  <!-- Education Start -->
+<div id="educationss"></div>
+  <div class="education-container">
+    <p class="description1"><span class="title1">Education</span><br></p>
+    <div class="education-item">
+      <div class="flex items-center">
+        <div class="circle"></div>
+        <h3 class="education-heading">Education Heading</h3>
+      </div>
+      <div class="details">
+        <div class="date">2015 - 2016</div>
+        <p>Institute, Kathmandu, Nepal</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum modi natus rerum maxime ad quisquam
+          officiis itaque eaque ea quos. Laborum, voluptate totam ducimus dolor enim ratione quasi dolore aperiam.</p>
+      </div>
+    </div>
+    <div class="education-item">
+      <div class="flex items-center">
+        <div class="circle"></div>
+        <h3 class="education-heading">Education Heading</h3>
+      </div>
+      <div class="details">
+        <div class="date">2010 - 2014</div>
+        <p>Institute, Kathmandu, Nepal</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit nisi aliquid soluta quo maxime numquam, itaque
+          ullam modi rem rerum consectetur vitae illo maiores cupiditate odio, quibusdam temporibus placeat velit.</p>
+      </div>
+    </div>
+    <div class="education-item">
+      <div class="flex items-center">
+        <div class="circle"></div>
+        <h3 class="education-heading">Education Heading</h3>
+      </div>
+      <div class="details">
+        <div class="date">2010 - 2014</div>
+        <p>Institute, Kathmandu, Nepal</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit nisi aliquid soluta quo maxime numquam, itaque
+          ullam modi rem rerum consectetur vitae illo maiores cupiditate odio, quibusdam temporibus placeat velit.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Education End -->
+  <!-- Experience Start -->
+  <div id="experience"></div>
+  <div class="education-container">
+    <p class="description1"><span class="title1">Experience</span><br></p>
+    <div class="education-item">
+      <div class="flex items-center">
+        <div class="circle"></div>
+        <h3 class="education-heading">Experience Heading</h3>
+      </div>
+      <div class="details">
+        <div class="date">2015 - 2016</div>
+        <p>Institute, Kathmandu, Nepal</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum modi natus rerum maxime ad quisquam
+          officiis itaque eaque ea quos. Laborum, voluptate totam ducimus dolor enim ratione quasi dolore aperiam.</p>
+      </div>
+    </div>
+    <div class="education-item">
+      <div class="flex items-center">
+        <div class="circle"></div>
+        <h3 class="education-heading">Experience Heading</h3>
+      </div>
+      <div class="details">
+        <div class="date">2010 - 2014</div>
+        <p>Institute, Kathmandu, Nepal</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit nisi aliquid soluta quo maxime numquam, itaque
+          ullam modi rem rerum consectetur vitae illo maiores cupiditate odio, quibusdam temporibus placeat velit.</p>
+      </div>
+    </div>
+    <div class="education-item">
+      <div class="flex items-center">
+        <div class="circle"></div>
+        <h3 class="education-heading">Experience Heading</h3>
+      </div>
+      <div class="details">
+        <div class="date">2010 - 2014</div>
+        <p>Institute, Kathmandu, Nepal</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit nisi aliquid soluta quo maxime numquam, itaque
+          ullam modi rem rerum consectetur vitae illo maiores cupiditate odio, quibusdam temporibus placeat velit.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Experience End -->
+  <!-- Skill Section Start -->
+  <div class="skills-container">
+    <h2 class="section-title">My Skills</h2>
+    <div class="skills-grid">
+      <div class="skill">
+        <img src="https://placehold.co/100x100" alt="HTML5" class="skill-image">
+        <h3 class="skill-title">HTML 5</h3>
+        <p class="skill-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+          Ipsum has been the industry's standard.</p>
+      </div>
+      <div class="skill">
+        <img src="https://placehold.co/100x100" alt="CSS3" class="skill-image">
+        <h3 class="skill-title">CSS 3</h3>
+        <p class="skill-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+          Ipsum has been the industry's standard.</p>
+      </div>
+      <div class="skill">
+        <img src="https://placehold.co/100x100" alt="JavaScript" class="skill-image">
+        <h3 class="skill-title">JavaScript</h3>
+        <p class="skill-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+          Ipsum has been the industry's standard.</p>
+      </div>
+      <div class="skill">
+        <img src="https://placehold.co/100x100" alt="Python" class="skill-image">
+        <h3 class="skill-title">Python</h3>
+        <p class="skill-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+          Ipsum has been the industry's standard.</p>
+      </div>
+      <div class="skill">
+        <img src="https://placehold.co/100x100" alt="Sass" class="skill-image">
+        <h3 class="skill-title">Sass</h3>
+        <p class="skill-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+          Ipsum has been the industry's standard.</p>
+      </div>
+      <div class="skill">
+        <img src="https://placehold.co/100x100" alt="MySQL" class="skill-image">
+        <h3 class="skill-title">MySQL</h3>
+        <p class="skill-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+          Ipsum has been the industry's standard.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Skill Section End -->
+
+
+  <!-- Footer Start -->
+  <div class="footer-container">
+    <div class="footer">
+      <span class="footer-text">Copyright © Sastopages 2024</span>
+      <span class="footer-text">DESIGNED BY MrExper</span>
+    </div>
+  </div>
+  <!-- Footer End -->
+</body>
+</html>
