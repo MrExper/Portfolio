@@ -3,6 +3,16 @@
 
 <head>
   <style>
+    /* Base styles */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
     .container {
       position: absolute;
       top: 0;
@@ -95,7 +105,8 @@
       display: flex;
       align-items: center;
       padding-top: 50px;
-      padding-left: 130px;
+      padding-left: 10%;
+      padding-right: 10%;
       opacity: 0;
       animation: appear 1s 6s forwards;
     }
@@ -105,7 +116,8 @@
     }
 
     .heroimage img {
-      height: 600px;
+      max-width: 100%;
+      height: auto;
       animation: moveUpDown 2s infinite alternate;
     }
 
@@ -208,7 +220,7 @@
     }
 
     .description1 {
-      margin-top: 2rem;
+      margin-top: 9rem;
       font-size: 1.5rem;
     }
 
@@ -282,7 +294,6 @@
       left: 100%;
     }
 
-
     .flex-display {
       display: flex;
     }
@@ -293,7 +304,8 @@
 
     .education-container {
       margin-top: 20px;
-      margin-left: 100px;
+      margin-left: 10%;
+      margin-right: 10%;
     }
 
     .education-item {
@@ -397,8 +409,59 @@
       font-size: 0.875rem;
     }
 
-    .footer-container{
+    .footer-container {
       padding: 0px;
+    }
+
+    /* Media Queries */
+    @media screen and (max-width: 768px) {
+      .heroarea {
+        flex-direction: column;
+        align-items: center;
+        padding: 50px 20px;
+      }
+
+      .heroimage {
+        margin: 20px 0;
+      }
+
+      .heroimage img {
+        max-width: 80%;
+      }
+
+      .container1 {
+        padding: 1rem 0;
+      }
+
+      .title,
+      .subtitle,
+      .description,
+      .role {
+        text-align: center;
+      }
+
+      .view-project1 {
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 1rem;
+      }
+
+      .education-container {
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .container1 {
+        max-width: 100%;
+      }
+
+      .education-container {
+        margin-left: 5%;
+        margin-right: 5%;
+      }
     }
   </style>
 </head>
@@ -423,7 +486,7 @@
       <h2 class="subtitle"><span class="title">Hi,</span><br>I'm Mr Exper</h2>
       <p class="description">A Tech-Enthusiast</p>
       <p class="role">Front End Developer</p>
-      <button class="btn">SEE MY WORKS →</button>
+      <button class="btn"><a href="#works" style="text-decoration: none;">SEE MY WORKS →</a></button>
     </div>
     <div class="heroimage">
       <img src="pic.png" alt="image">
@@ -465,7 +528,7 @@
 
   <!-- Works Area End -->
   <!-- Education Start -->
-<div id="educationss"></div>
+  <div id="educationss"></div>
   <div class="education-container">
     <p class="description1"><span class="title1">Education</span><br></p>
     <div class="education-item">
